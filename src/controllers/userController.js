@@ -21,21 +21,29 @@ export const postJoin = async (req, res) => {
     if (emailExists) {
       errorMessage = errorMessage + " email";
     }
-    return res.render("join", {
+    return res.status(400).render("join", {
       pageTitle: "join",
       errorMessage: `Check ${errorMessage}`,
     });
   }
 
-  await User.create({
-    email,
-    username,
-    password,
-    name,
-    location,
-  });
-  return res.redirect("/login");
+  try {
+    await User.create({
+      email,
+      username,
+      password,
+      name,
+      location,
+    });
+    return res.redirect("/login");
+  } catch (error) {
+    return res.status(400).render("join", {
+      pageTitle: "join",
+      errorMessage: `something ${errorMessage}`,
+    });
+  }
 };
+
 export const handleLogin = (req, res) => res.send("Login 👌");
 export const handleSee = (req, res) => res.send("ID page 👌");
 
