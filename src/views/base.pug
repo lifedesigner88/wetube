@@ -1,0 +1,25 @@
+doctype html
+html(lang="ko")
+    head
+        title #{pageTitle} | Wetube
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css" )
+    body 
+        header 
+            h1=pageTitle
+            nav 
+                ul 
+                    li 
+                        a(href="/") Home
+                    li
+                        a(href="/videos/upload") Upload Video
+                    li
+                        a(href="/search") Search Video
+                    li
+                        a(href="/join") Join
+        main 
+            block content
+            
+            br
+            include partials/footer
+            br
+

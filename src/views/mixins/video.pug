@@ -1,0 +1,11 @@
+mixin video(video)
+    div 
+        h1
+            a(href="/videos/" + video.id )=video.title
+        ul 
+            li `Description : #{video.description}`
+            li `Views : #{video.meta.views} `
+            li `Rating : #{video.meta.rating} `
+            br
+            span=video.createdAt
+        hr

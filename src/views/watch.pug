@@ -1,0 +1,18 @@
+extends base
+
+block content 
+    h1=video.title
+    p=video.description
+    small=video.createdAt
+    br
+    ul 
+        li `Views : #{video.meta.views} `
+        li `Rating : #{video.meta.rating} `
+    each hashtag in video.hashtags
+        li #{hashtag} 
+        br
+    a(href=`${video.id}/edit`) Edit Video &rarr;
+    br
+    a(href=`${video.id}/delete`) Delete Video &rarr;
+    hr
+
