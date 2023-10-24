@@ -14,6 +14,7 @@ rootRouter.get("/", handleHome);
 rootRouter.route("/join").get(getJoin).post(postJoin);
 rootRouter.route("/login").get(getLogin).post(postLogin);
 rootRouter.get("/search", handleSearch);
+
 rootRouter.get("/:id", handleSee);
 
 export default rootRouter;

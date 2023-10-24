@@ -73,11 +73,17 @@ export const postLogin = async (req, res) => {
       errorMessage: "Password dose not Match",
     });
   }
+
+  req.session.loggedIn = true;
+  req.session.user = user;
+
   return res.status(200).redirect("/");
 };
 
 // User router
-export const handleSee = (req, res) => res.send("ID page 👌");
 export const handleLogout = (req, res) => res.send("Logout(user) 😊");
+export const handleMyPage = (req, res) => res.send("MyPage 😊");
+
+export const handleSee = (req, res) => res.send("ID page 👌");
 export const handleEdit = (req, res) => res.send("Edit(user) 😊");
 export const handleDelet = (req, res) => res.send("Delet(user) 😊");
